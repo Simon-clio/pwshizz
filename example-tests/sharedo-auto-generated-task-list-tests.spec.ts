@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { credentials } from '../tests/.credentials';
 
 // Common login function to be used by all tests
 async function login(page) {
@@ -7,8 +8,8 @@ async function login(page) {
   await page.waitForLoadState('domcontentloaded');
 
   // Login with admin credentials
-  await page.getByRole('textbox', { name: 'Username' }).fill('admin');
-  await page.getByRole('textbox', { name: 'Password' }).fill('password');
+  await page.getByRole('textbox', { name: 'Username' }).fill(credentials.username);
+  await page.getByRole('textbox', { name: 'Password' }).fill(credentials.password);
   await page.getByRole('button', { name: 'Login' }).click();
 
   // Wait for successful login

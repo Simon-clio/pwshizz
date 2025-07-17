@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
+import { credentials } from './.credentials';
 
 const baseUrl = 'https://core1-release.sharedo.co.uk/';
 const loginUrl = 'https://core1-release-identity.sharedo.co.uk/login';
 
-const correctUsername = 'pwshizz';
-const correctPassword = 'q4ruleZZZ';
+const correctUsername = credentials.username;
+const correctPassword = credentials.password;
 const wrongUsername = 'wronguser';
 const wrongPassword = 'wrongpass';
 

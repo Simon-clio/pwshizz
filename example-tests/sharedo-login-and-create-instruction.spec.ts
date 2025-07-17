@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { credentials } from '../tests/.credentials';
 
 // Create a test fixture that handles login
 test.beforeEach(async ({ page, context }) => {
   await page.goto('https://localhost:44350');
   
-  await page.fill('[name="username"]', "admin");
-  await page.fill('[name="password"]', "password");
+  await page.fill('[name="username"]', credentials.username);
+  await page.fill('[name="password"]', credentials.password);
 
   // Click Login
   await page.click(`.action-button:has-text("Login")`);
